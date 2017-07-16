@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
   //  @IBOutlet weak var content: UILabel!
     @IBOutlet weak var content: UIWebView!
   
@@ -26,16 +26,11 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    
-       // view.layoutIfNeeded()
+   
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        webView.frame.size.height = 0.0 // Just in case
+        webView.sizeToFit()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
